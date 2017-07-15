@@ -1,9 +1,6 @@
 import { OTGIPService } from "../interfaces/otgip-service.interface";
 import { OTGIPGetIPResponse } from "../interfaces/otgip-get-ip-response";
 import { OTGIPServiceFactory } from "./otgip-service.factory";
-/**
- * Created by sergeome on 7/15/17.
- */
 
 export class OTGIPDefaultService implements OTGIPService {
 
