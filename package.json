@@ -1,0 +1,26 @@
+{
+  "name": "opentime-typescript-geo-ip-sdk",
+  "version": "1.0.0",
+  "description": "OpenTime Geo IP SDK",
+  "scripts": {
+    "test": "karma start"
+  },
+  "keywords": [
+    "opentime",
+    "sdk",
+    "websearch"
+  ],
+  "author": "OpenTime™ Inc.",
+  "license": "MIT",
+  "devDependencies": {
+    "jasmine": "^2.6.0",
+    "karma": "^1.7.0",
+    "karma-jasmine": "^1.1.0",
+    "karma-phantomjs-launcher": "^1.0.4",
+    "karma-typescript": "^3.0.4",
+    "typescript": "^2.4.1"
+  },
+  "dependencies": {
+    "@types/jasmine": "^2.5.53"
+  }
+}
