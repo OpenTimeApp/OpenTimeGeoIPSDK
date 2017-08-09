@@ -1,6 +1,6 @@
-import { OTGIPLocation } from "../../interfaces/otgip-location";
+import { TRGIPLocation } from "../../interfaces/trgip-location";
 
-export class OTGIPIPAPILocationDeserializer implements OTGIPLocation {
+export class TRGIPIPAPILocationDeserializer implements TRGIPLocation {
 
   private _lat: number;
   private _long: number;

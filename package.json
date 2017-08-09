@@ -1,26 +1,31 @@
 {
-  "name": "opentime-typescript-geo-ip-sdk",
+  "name": "timerocket-typescript-geo-ip-sdk",
   "version": "1.0.0",
-  "description": "OpenTime Geo IP SDK",
+  "private": false,
+  "description": "TimeRocket Geo IP SDK",
   "scripts": {
     "test": "karma start"
   },
   "keywords": [
-    "opentime",
+    "timerocket",
     "sdk",
     "websearch"
   ],
-  "author": "OpenTime™ Inc.",
+  "author": "TimeRocket™ Inc.",
   "license": "MIT",
   "devDependencies": {
-    "jasmine": "^2.6.0",
+    "jasmine": "^2.7.0",
     "karma": "^1.7.0",
     "karma-jasmine": "^1.1.0",
     "karma-phantomjs-launcher": "^1.0.4",
-    "karma-typescript": "^3.0.4",
-    "typescript": "^2.4.1"
+    "karma-typescript": "^3.0.5",
+    "typescript": "^2.4.2"
   },
   "dependencies": {
     "@types/jasmine": "^2.5.53"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/TimeRocket/TimeRocketGeoIPSDK.git"
   }
 }

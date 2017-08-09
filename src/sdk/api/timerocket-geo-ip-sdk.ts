@@ -1,6 +1,6 @@
-import { OTGIPConstant } from "./otgip-constant";
-export class OpenTimeGeoIPSDK {
-  private static _sdk: OpenTimeGeoIPSDK = null;
+import { TRGIPConstant } from "./trgip-constant";
+export class TimeRocketGeoIPSDK {
+  private static _sdk: TimeRocketGeoIPSDK = null;
 
   private _apiKey: string;
   private _inTestMode: boolean;
@@ -9,23 +9,23 @@ export class OpenTimeGeoIPSDK {
   constructor(apiKey: string, inTestMode: boolean) {
     this._apiKey = apiKey;
     this._inTestMode = inTestMode;
-    this._server = inTestMode ? OTGIPConstant.TEST_SERVER : OTGIPConstant.LIVE_SERVER;
+    this._server = inTestMode ? TRGIPConstant.TEST_SERVER : TRGIPConstant.LIVE_SERVER;
   }
 
-  public static getService(): OpenTimeGeoIPSDK {
-    if (OpenTimeGeoIPSDK._sdk !== null) {
-      return OpenTimeGeoIPSDK._sdk;
+  public static getService(): TimeRocketGeoIPSDK {
+    if (TimeRocketGeoIPSDK._sdk !== null) {
+      return TimeRocketGeoIPSDK._sdk;
     } else {
-      throw new Error("OpenTimeGeoIPSDK not initialized");
+      throw new Error("TimeRocketGeoIPSDK not initialized");
     }
   }
 
   public static initService(apiKey: string, inTestMode: boolean = false): void {
-    OpenTimeGeoIPSDK._sdk = new OpenTimeGeoIPSDK(apiKey, inTestMode);
+    TimeRocketGeoIPSDK._sdk = new TimeRocketGeoIPSDK(apiKey, inTestMode);
   }
 
   public getEndpoint(api: string, method: string): string {
-    let endpoint: string = this._server + '/' + api + OTGIPConstant.API_BASE_URL;
+    let endpoint: string = this._server + '/' + api + TRGIPConstant.API_BASE_URL;
     if (method !== '') {
       endpoint += '/' + method;
     }
