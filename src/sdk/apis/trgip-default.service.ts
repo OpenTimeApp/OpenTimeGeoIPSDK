@@ -4,14 +4,20 @@ import { TRGIPServiceFactory } from "./trgip-service.factory";
 
 export class TRGIPDefaultService implements TRGIPService {
 
-  private _defaultService: string;
+  private _defaultService: TRGIPService;
+  private _defaultServiceName: string;
 
   constructor(){
-    this._defaultService = TRGIPServiceFactory.IP_API;
+    this._defaultService = TRGIPServiceFactory.getService(TRGIPServiceFactory.IP_API);
   }
 
   public setDefaultService(service: string) {
-    this._defaultService = service;
+      this._defaultServiceName = service;
+      this._defaultService = TRGIPServiceFactory.getService(service);
+  }
+
+  public setServiceOptions(options: any){
+      this._getService().setServiceOptions(options[this._defaultServiceName]);
   }
 
   getIP(callback: (location: TRGIPGetIPResponse) => void): void {
@@ -19,7 +25,7 @@ export class TRGIPDefaultService implements TRGIPService {
   }
 
   private _getService(): TRGIPService {
-    return TRGIPServiceFactory.getService(this._defaultService);
+    return this._defaultService;
   }
 
 

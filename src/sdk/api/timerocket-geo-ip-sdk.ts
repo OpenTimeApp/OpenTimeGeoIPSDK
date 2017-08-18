@@ -1,15 +1,12 @@
-import { TRGIPConstant } from "./trgip-constant";
 export class TimeRocketGeoIPSDK {
   private static _sdk: TimeRocketGeoIPSDK = null;
 
-  private _apiKey: string;
+  private _configs: any;
   private _inTestMode: boolean;
-  private _server: string;
 
-  constructor(apiKey: string, inTestMode: boolean) {
-    this._apiKey = apiKey;
+  constructor(apiKeys: string, inTestMode: boolean) {
+    this._configs = apiKeys;
     this._inTestMode = inTestMode;
-    this._server = inTestMode ? TRGIPConstant.TEST_SERVER : TRGIPConstant.LIVE_SERVER;
   }
 
   public static getService(): TimeRocketGeoIPSDK {
@@ -20,27 +17,12 @@ export class TimeRocketGeoIPSDK {
     }
   }
 
-  public static initService(apiKey: string, inTestMode: boolean = false): void {
-    TimeRocketGeoIPSDK._sdk = new TimeRocketGeoIPSDK(apiKey, inTestMode);
+  public static initService(apiKeys: any, inTestMode: boolean = false): void {
+    TimeRocketGeoIPSDK._sdk = new TimeRocketGeoIPSDK(apiKeys, inTestMode);
   }
 
-  public getEndpoint(api: string, method: string): string {
-    let endpoint: string = this._server + '/' + api + TRGIPConstant.API_BASE_URL;
-    if (method !== '') {
-      endpoint += '/' + method;
-    }
-    return endpoint;
+  public getAPIKey(service: string){
+      return this._configs[service].key;
   }
 
-  public getServer(): string {
-    return this._server;
-  }
-
-  public getAPIKey(): string {
-    return this._apiKey;
-  }
-
-  public setServer(server: string): void {
-    this._server = server;
-  }
 }
