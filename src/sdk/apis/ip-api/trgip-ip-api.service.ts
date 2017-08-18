@@ -31,6 +31,10 @@ export class TRGIPIPAPIService implements TRGIPService {
     }
 
     private _getURL() : string {
+        return this._getServer()  + '/json';
+    }
+
+    private _getServer() : string {
         if(this._options['key'] && this._options['key'].trim() !== ''){
             return TRGIPIPAPIService.PROD_URL
         }else{
