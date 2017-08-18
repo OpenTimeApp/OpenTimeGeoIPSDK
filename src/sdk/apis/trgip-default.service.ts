@@ -1,32 +1,33 @@
-import { TRGIPService } from "../interfaces/trgip-service.interface";
-import { TRGIPGetIPResponse } from "../interfaces/trgip-get-ip-response";
-import { TRGIPServiceFactory } from "./trgip-service.factory";
+import {TRGIPService} from "../interfaces/trgip-service.interface";
+import {TRGIPGetIPResponse} from "../interfaces/trgip-get-ip-response";
+import {TRGIPServiceFactory} from "./trgip-service.factory";
 
 export class TRGIPDefaultService implements TRGIPService {
 
-  private _defaultService: TRGIPService;
-  private _defaultServiceName: string;
+    private _defaultService: TRGIPService;
+    private _defaultServiceName: string;
 
-  constructor(){
-    this._defaultService = TRGIPServiceFactory.getService(TRGIPServiceFactory.IP_API);
-  }
+    constructor() {
+        this._defaultServiceName = TRGIPServiceFactory.IP_API;
+        this._defaultService = TRGIPServiceFactory.getService(this._defaultServiceName);
+    }
 
-  public setDefaultService(service: string) {
-      this._defaultServiceName = service;
-      this._defaultService = TRGIPServiceFactory.getService(service);
-  }
+    public setDefaultService(service: string) {
+        this._defaultServiceName = service;
+        this._defaultService = TRGIPServiceFactory.getService(service);
+    }
 
-  public setServiceOptions(options: any){
-      this._getService().setServiceOptions(options[this._defaultServiceName]);
-  }
+    public setServiceOptions(options: any) {
+        this._getService().setServiceOptions(options[this._defaultServiceName]);
+    }
 
-  getIP(callback: (location: TRGIPGetIPResponse) => void): void {
-    this._getService().getIP(callback);
-  }
+    getIP(callback: (location: TRGIPGetIPResponse) => void): void {
+        this._getService().getIP(callback);
+    }
 
-  private _getService(): TRGIPService {
-    return this._defaultService;
-  }
+    private _getService(): TRGIPService {
+        return this._defaultService;
+    }
 
 
 }
