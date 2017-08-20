@@ -5,7 +5,7 @@ import {TRGIPGetIPResponse} from "../../interfaces/trgip-get-ip-response";
 
 export class TRGIPIPAPIService implements TRGIPService {
 
-    private static readonly DEV_URL = 'http://ip-api.com/json';
+    private static readonly DEV_URL = 'http://ip-api.com';
     private static readonly PROD_URL = 'https://pro.ip-api.com';
 
     private _options: any;
